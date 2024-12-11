@@ -1,0 +1,116 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<style>
+			.hero-section {
+				padding: 4rem 0;
+				background: linear-gradient(to bottom, #ffffff, #f5f5f5);
+				text-align: center;
+			}
+			.hero-title {
+				font-size: 4rem;
+				line-height: 1.2;
+				margin-bottom: 1.5rem;
+				background: var(--gradient-primary);
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				display: inline-block;
+			}
+			.hero-image {
+				max-width: 800px;
+				width: 100%;
+				margin: 2rem auto;
+				border-radius: 12px;
+				box-shadow: var(--box-shadow);
+			}
+			.hero-text {
+				font-size: 1.5rem;
+				line-height: 1.6;
+				max-width: 800px;
+				margin: 0 auto 2rem;
+				color: rgb(var(--gray-dark));
+			}
+			.content-section {
+				padding: 2rem 0;
+			}
+			.cta-button {
+				display: inline-block;
+				padding: 1rem 2rem;
+				font-size: 1.25rem;
+				font-weight: bold;
+				text-decoration: none;
+				color: white;
+				background: var(--gradient-primary);
+				border-radius: 8px;
+				transition: all 0.3s ease;
+				margin-bottom: 2rem;
+			}
+			.cta-button:hover {
+				transform: translateY(-2px);
+				box-shadow: 0 4px 12px rgba(189, 52, 254, 0.3);
+				color: white;
+			}
+			@media (max-width: 768px) {
+				.hero-title {
+					font-size: 2.5rem;
+				}
+				.hero-text {
+					font-size: 1.2rem;
+					padding: 0 1rem;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section class="hero-section">
+				<a href="https://ody.lol" class="cta-button">Go to Exchange</a>
+				<img src="/hero-welcome.png" alt="Welcome to Odyssey Exchange" class="hero-image" />
+				<p class="hero-text">
+					Experience the next generation of cryptocurrency trading with Odyssey Exchange. Our platform combines advanced trading features with unmatched opportunities for traders, projects, and influencers.
+				</p>
+			</section>
+
+			<section class="content-section">
+				<h2>Trading Excellence</h2>
+				<ul>
+					<li><strong>150+ Trading Pairs</strong> - Diverse selection of cryptocurrencies</li>
+					<li><strong>0% Spot Trading Commission</strong> - Maximize your trading profits</li>
+					<li><strong>Leverage up to 777x</strong> - Enhanced trading opportunities</li>
+					<li>Advanced trading tools and real-time market data</li>
+					<li>High liquidity pools and fast order execution</li>
+				</ul>
+
+				<h2>Project Launch & Listing</h2>
+				<ul>
+					<li><strong>Token Listings</strong> - Fast-track listing process for qualified projects</li>
+					<li><strong>Launchpad Platform</strong> - Secure and efficient token launches</li>
+					<li>Professional market making services</li>
+					<li>Technical and marketing support</li>
+				</ul>
+
+				<h2>Partnership Opportunities</h2>
+				<ul>
+					<li><strong>Affiliate Marketing</strong> - Lucrative rewards for partners</li>
+					<li><strong>Influencer Program</strong> - Tailored collaboration opportunities</li>
+					<li>Dedicated support for crypto bloggers</li>
+					<li>Custom partnership packages</li>
+				</ul>
+
+				<p>
+					Join the future of digital asset trading. Whether you're a trader, project owner, or influencer, Odyssey Exchange provides the tools and support you need to succeed in the cryptocurrency market.
+				</p>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
