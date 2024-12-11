@@ -18,4 +18,12 @@ export default defineConfig({
 			]
 		})
 	],
+	head: [
+		{
+			rel: 'icon',
+			href: '/favicon.png',
+			type: 'image/png',
+			sizes: '32x32'		
+		}
+	]
 });
