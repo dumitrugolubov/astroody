@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://odysseyexchange.com',
+	site: 'https://odyex.cc',
 	integrations: [
 		mdx(),
 		sitemap({
@@ -12,9 +12,9 @@ export default defineConfig({
 			priority: 0.7,
 			lastmod: new Date(),
 			customPages: [
-				'https://odysseyexchange.com/trading',
-				'https://odysseyexchange.com/launchpad',
-				'https://odysseyexchange.com/affiliate'
+				'https://odyex.cc/trading',
+				'https://odyex.cc/launchpad',
+				'https://odyex.cc/affiliate'
 			]
 		})
 	],
