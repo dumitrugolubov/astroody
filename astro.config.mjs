@@ -7,13 +7,7 @@ export default defineConfig({
 	site: 'https://odyex.cc',
 	output: 'static',
 	build: {
-		format: 'file'
-	},
-	markdown: {
-		drafts: false,
-		shikiConfig: {
-			theme: 'github-dark'
-		}
+		format: 'directory'
 	},
 	integrations: [
 		mdx(),
