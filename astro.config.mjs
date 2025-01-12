@@ -6,9 +6,15 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
 	site: 'https://odyex.cc',
 	output: 'static',
-	trailingSlash: 'always',
+	trailingSlash: 'never',
 	build: {
-		format: 'directory'
+		format: 'file'
+	},
+	markdown: {
+		drafts: false,
+		shikiConfig: {
+			theme: 'github-dark'
+		}
 	},
 	integrations: [
 		mdx(),
@@ -17,10 +23,16 @@ export default defineConfig({
 			priority: 0.7,
 			lastmod: new Date(),
 			customPages: [
-				'https://odyex.cc/',
-				'https://odyex.cc/about/',
-				'https://odyex.cc/blog/'
-			]
+				'https://odyex.cc',
+				'https://odyex.cc/about',
+				'https://odyex.cc/blog'
+			],
+			serialize(item) {
+				if (item.url.endsWith('/')) {
+					item.url = item.url.slice(0, -1);
+				}
+				return item;
+			}
 		})
 	],
 	head: [
