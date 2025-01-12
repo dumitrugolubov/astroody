@@ -6,7 +6,8 @@ export default defineConfig({
 	site: 'https://odyex.cc',
 	output: 'static',
 	build: {
-		format: 'file'
+		format: 'directory'
 	},
+	trailingSlash: 'never',
 	integrations: [mdx(), sitemap()]
 });
