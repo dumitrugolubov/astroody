@@ -64,19 +64,42 @@ force = true
 ```
 Result: ❌ Still redirecting
 
+### Attempt 4: Using _redirects file
+```
+# _redirects
+/blog  /blog.html  200!
+/about /about.html 200!
+```
+Result: ❌ Still redirecting
+
+### Attempt 5: Using Netlify Edge Functions
+```ts
+// netlify/edge-functions/routing.ts
+export default async (request: Request, context: Context) => {
+  const url = new URL(request.url);
+  
+  if (['/blog', '/about'].includes(url.pathname)) {
+    return context.rewrite(`${url.pathname}.html`);
+  }
+
+  return context.next();
+};
+```
+```toml
+# netlify.toml
+[[edge_functions]]
+function = "routing"
+path = "/*"
+```
+Result: Testing...
+
 ## Observations
 1. Local dev server works fine - suggests issue is Netlify-specific
 2. Redirect loop happens between .html and non-.html versions
 3. Netlify's processing might be interfering with Astro's output
+4. Previous attempts with redirects and URL processing didn't work
 
-## Next Attempts to Try:
-1. Use Netlify Edge Functions for routing
-2. Try without any redirects but with _redirects file
-3. Use Netlify's asset optimization settings
-4. Check Netlify's deploy logs for clues
-
-## Questions to Answer:
-1. What's different between local and Netlify environments?
-2. How is Netlify processing the built files?
-3. Are there any hidden redirects we're not seeing?
-4. What's the exact sequence of redirects happening?
+## Next Attempts if Edge Functions Don't Work:
+1. Try using Netlify's asset optimization settings
+2. Investigate Netlify's default routing behavior
+3. Consider using a custom 404.html approach
