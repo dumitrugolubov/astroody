@@ -3,34 +3,34 @@
   publish = "dist"
 
 [[redirects]]
-  from = "/"
-  to = "/index.html"
-  status = 200
+  from = "http://*"
+  to = "https://:splat"
+  status = 301
+  force = true
 
 [[redirects]]
-  from = "/blog"
-  to = "/blog.html"
-  status = 200
+  from = "/blog/*"
+  to = "/blog"
+  status = 301
+  force = true
 
 [[redirects]]
-  from = "/about"
-  to = "/about.html"
-  status = 200
+  from = "/about/*"
+  to = "/about"
+  status = 301
+  force = true
 
 [[redirects]]
-  from = "/blog/"
-  to = "/blog.html"
-  status = 200
-
-[[redirects]]
-  from = "/about/"
-  to = "/about.html"
-  status = 200
+  from = "/*/"
+  to = "/:splat"
+  status = 301
+  force = true
 
 [[redirects]]
   from = "/*"
-  to = "/404.html"
+  to = "/404"
   status = 404
+  force = false
 
 [[headers]]
   for = "/*"
