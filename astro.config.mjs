@@ -5,10 +5,10 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://odyex.cc',
-	output: 'static',  // Explicitly set static output
+	output: 'static',
 	trailingSlash: 'never', // Change to never to match Netlify's default behavior
 	build: {
-		format: 'file' // Change to file instead of directory
+		format: 'directory' // Change to directory instead of file
 	},
 	integrations: [
 		mdx(),
