@@ -5,9 +5,10 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://odyex.cc',
-	trailingSlash: 'always',
+	output: 'static',  // Explicitly set static output
+	trailingSlash: 'never', // Change to never to match Netlify's default behavior
 	build: {
-		format: 'directory'
+		format: 'file' // Change to file instead of directory
 	},
 	integrations: [
 		mdx(),
@@ -16,9 +17,9 @@ export default defineConfig({
 			priority: 0.7,
 			lastmod: new Date(),
 			customPages: [
-				'https://odyex.cc/',
-				'https://odyex.cc/about/',
-				'https://odyex.cc/blog/'
+				'https://odyex.cc',
+				'https://odyex.cc/about',
+				'https://odyex.cc/blog'
 			]
 		})
 	],
