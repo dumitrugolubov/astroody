@@ -21,5 +21,10 @@ export default defineConfig({
 				'https://odyex.cc/blog'
 			]
 		})
-	]
+	],
+	redirects: {
+		'/404/': '/404',
+		'/blog/': '/blog',
+		'/about/': '/about'
+	}
 });
