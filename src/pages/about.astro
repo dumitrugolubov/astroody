@@ -1,75 +1,142 @@
 ---
-import Layout from '../layouts/BlogPost.astro';
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE } from '../consts';
 ---
 
-<Layout
-	title="About Odyssey Exchange"
-	description="Leading cryptocurrency exchange offering comprehensive trading, listing, and partnership solutions"
-	pubDate={new Date('August 08 2021')}
-	heroImage="/blog-placeholder-about.jpg"
->
-	<div class="text-center">
-		<a href="https://ody.lol" class="cta-button">Go to Exchange</a>
-	</div>
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead 
+			title="About Odyssey Exchange"
+			description="Leading cryptocurrency exchange offering comprehensive trading, listing, and partnership solutions"
+		/>
+		<style>
+			.hero-image {
+				width: 100%;
+			}
+			.hero-image img {
+				display: block;
+				margin: 0 auto;
+				border-radius: 12px;
+				box-shadow: var(--box-shadow);
+			}
+			.prose {
+				width: 720px;
+				max-width: calc(100% - 2em);
+				margin: auto;
+				padding: 1em;
+				color: rgb(var(--gray-dark));
+			}
+			.title {
+				margin-bottom: 1em;
+				padding: 1em 0;
+				text-align: center;
+				line-height: 1;
+			}
+			.title h1 {
+				margin: 0 0 0.5em 0;
+			}
+			.cta-button {
+				display: inline-block;
+				padding: 0.8em 2em;
+				background-color: #4F46E5;
+				color: white;
+				text-decoration: none;
+				border-radius: 8px;
+				font-weight: 600;
+				margin: 2em 0;
+				transition: background-color 0.2s;
+			}
+			.cta-button:hover {
+				background-color: #4338CA;
+			}
+			ul {
+				padding-left: 2em;
+				margin-bottom: 2em;
+			}
+			ul li {
+				margin-bottom: 0.5em;
+			}
+			.text-center {
+				text-align: center;
+				margin: 2rem 0;
+			}
+		</style>
+	</head>
+	<body>
+		<Header title={SITE_TITLE} />
+		<main>
+			<article>
+				<div class="hero-image">
+					<img width={1020} height={510} src="/blog-placeholder-about.jpg" alt="" />
+				</div>
+				<div class="prose">
+					<div class="title">
+						<h1>About Odyssey Exchange</h1>
+					</div>
 
-	<p>
-		Odyssey Exchange is a cutting-edge cryptocurrency trading platform that combines advanced technology with user-friendly features to serve traders, projects, and partners worldwide.
-	</p>
+					<div class="text-center">
+						<a href="https://ody.lol" class="cta-button">Go to Exchange</a>
+					</div>
 
-	<h2>Trading Features</h2>
-	<ul>
-		<li><strong>Extensive Market Coverage:</strong> Access to 150+ trading pairs</li>
-		<li><strong>Cost-Effective Trading:</strong> 0% commission on spot trading</li>
-		<li><strong>Advanced Trading:</strong> Leverage trading up to 777x</li>
-		<li><strong>Professional Tools:</strong> Advanced charting, order types, and market analysis</li>
-		<li><strong>Security:</strong> Multi-layer security system with cold storage</li>
-	</ul>
+					<p>
+						Odyssey Exchange is a cutting-edge cryptocurrency trading platform that combines advanced technology with user-friendly features to serve traders, projects, and partners worldwide.
+					</p>
 
-	<h2>Project Services</h2>
-	<ul>
-		<li><strong>Token Listings:</strong> Streamlined listing process for quality projects</li>
-		<li><strong>Launchpad Platform:</strong> Secure and efficient token launch platform</li>
-		<li><strong>Market Making:</strong> Professional liquidity provision</li>
-		<li><strong>Marketing Support:</strong> Comprehensive marketing assistance</li>
-	</ul>
+					<h2>Trading Features</h2>
+					<ul>
+						<li><strong>Extensive Market Coverage:</strong> Access to 150+ trading pairs</li>
+						<li><strong>Cost-Effective Trading:</strong> 0% commission on spot trading</li>
+						<li><strong>Advanced Trading:</strong> Leverage trading up to 777x</li>
+						<li><strong>Professional Tools:</strong> Advanced charting, order types, and market analysis</li>
+						<li><strong>Security:</strong> Multi-layer security system with cold storage</li>
+					</ul>
 
-	<h2>Partnership Programs</h2>
-	<ul>
-		<li><strong>Affiliate Marketing:</strong>
-			<ul>
-				<li>Competitive commission structure</li>
-				<li>Real-time tracking and reporting</li>
-				<li>Marketing resources and support</li>
-			</ul>
-		</li>
-		<li><strong>Influencer Collaboration:</strong>
-			<ul>
-				<li>Custom partnership packages</li>
-				<li>Exclusive promotional opportunities</li>
-				<li>Dedicated partnership manager</li>
-			</ul>
-		</li>
-	</ul>
+					<h2>Project Services</h2>
+					<ul>
+						<li><strong>Token Listings:</strong> Streamlined listing process for quality projects</li>
+						<li><strong>Launchpad Platform:</strong> Secure and efficient token launch platform</li>
+						<li><strong>Market Making:</strong> Professional liquidity provision</li>
+						<li><strong>Marketing Support:</strong> Comprehensive marketing assistance</li>
+					</ul>
 
-	<h2>Why Choose Odyssey Exchange?</h2>
-	<ul>
-		<li>Advanced trading engine with high performance</li>
-		<li>24/7 multilingual customer support</li>
-		<li>Regular platform updates and new features</li>
-		<li>Strong focus on security and compliance</li>
-		<li>Active community and educational resources</li>
-	</ul>
+					<h2>Partnership Programs</h2>
+					<ul>
+						<li><strong>Affiliate Marketing:</strong>
+							<ul>
+								<li>Competitive commission structure</li>
+								<li>Real-time tracking and reporting</li>
+								<li>Marketing resources and support</li>
+							</ul>
+						</li>
+						<li><strong>Influencer Collaboration:</strong>
+							<ul>
+								<li>Custom partnership packages</li>
+								<li>Exclusive promotional opportunities</li>
+								<li>Dedicated partnership manager</li>
+							</ul>
+						</li>
+					</ul>
 
-	<h2>Contact Us</h2>
-	<p>
-		<strong>Listing Inquiries:</strong> odyexchange@gmail.com | Telegram: @t_dmi3<br>
-		<strong>Partnership Programs:</strong> odyexchange@gmail.com | Telegram: @t_dmi3
-	</p>
-</Layout>
+					<h2>Why Choose Odyssey Exchange?</h2>
+					<ul>
+						<li>Advanced trading engine with high performance</li>
+						<li>24/7 multilingual customer support</li>
+						<li>Regular platform updates and new features</li>
+						<li>Strong focus on security and compliance</li>
+						<li>Active community and educational resources</li>
+					</ul>
 
-<style>
-	.text-center {
-		text-align: center;
-		margin: 2rem 0;
-	}
-</style>
+					<h2>Contact Us</h2>
+					<p>
+						<strong>Listing Inquiries:</strong> odyexchange@gmail.com | Telegram: @t_dmi3<br>
+						<strong>Partnership Programs:</strong> odyexchange@gmail.com | Telegram: @t_dmi3
+					</p>
+				</div>
+			</article>
+		</main>
+		<Footer />
+	</body>
+</html>
