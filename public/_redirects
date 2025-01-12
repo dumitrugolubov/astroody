@@ -1,0 +1,13 @@
+# Redirect default Netlify subdomain to primary domain
+https://astroody.netlify.app/* https://odyex.cc/:splat 301!
+
+# Handle blog and about pages
+/blog  /blog.html  200!
+/about /about.html 200!
+
+# Handle trailing slashes
+/blog/  /blog.html  200!
+/about/ /about.html 200!
+
+# Handle 404
+/*  /404.html  404
