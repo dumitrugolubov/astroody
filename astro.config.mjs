@@ -12,9 +12,9 @@ export default defineConfig({
 			priority: 0.7,
 			lastmod: new Date(),
 			customPages: [
-				'https://odyex.cc/trading',
-				'https://odyex.cc/launchpad',
-				'https://odyex.cc/affiliate'
+				'https://odyex.cc/',
+				'https://odyex.cc/about',
+				'https://odyex.cc/blog'
 			]
 		})
 	],
@@ -25,5 +25,13 @@ export default defineConfig({
 			type: 'image/png',
 			sizes: '32x32'		
 		}
-	]
+	],
+	server: {
+		headers: {
+			'Strict-Transport-Security': 'max-age=31536000; includeSubDomains',
+			'X-Content-Type-Options': 'nosniff',
+			'X-Frame-Options': 'DENY',
+			'Referrer-Policy': 'strict-origin-when-cross-origin',
+		}
+	}
 });
