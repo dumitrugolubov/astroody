@@ -6,13 +6,11 @@ type Props = HTMLAttributes<'a'>;
 const { href, class: className, ...props } = Astro.props;
 
 const { pathname } = Astro.url;
-const isActive = href === pathname || pathname.startsWith(href);
+const isActive = href === pathname || href !== '/' && pathname.startsWith(href);
 
-// Ensure trailing slash
-const finalHref = href === '/' ? href : href.endsWith('/') ? href : `${href}/`;
 ---
 
-<a href={finalHref} class:list={[className, { active: isActive }]} {...props}>
+<a href={href} class:list={[className, { active: isActive }]} {...props}>
 	<slot />
 </a>
 <style>
