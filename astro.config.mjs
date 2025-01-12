@@ -8,6 +8,5 @@ export default defineConfig({
 	build: {
 		format: 'file'
 	},
-	trailingSlash: 'always',
 	integrations: [mdx(), sitemap()]
 });
