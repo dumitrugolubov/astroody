@@ -4,10 +4,10 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://odyex.cc/',
+	site: 'https://odyex.cc',
 	output: 'static',
 	build: {
-		format: 'directory'
+		format: 'file'
 	},
 	trailingSlash: 'always',
 	integrations: [
@@ -17,9 +17,9 @@ export default defineConfig({
 			priority: 0.7,
 			lastmod: new Date(),
 			customPages: [
-				'https://odyex.cc/',
-				'https://odyex.cc/about/',
-				'https://odyex.cc/blog/'
+				'https://odyex.cc',
+				'https://odyex.cc/about',
+				'https://odyex.cc/blog'
 			]
 		})
 	],
