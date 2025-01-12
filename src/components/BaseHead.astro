@@ -7,11 +7,21 @@ interface Props {
 	title: string;
 	description: string;
 	image?: string;
+	type?: string;
+	publishDate?: Date;
+	author?: string;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
+const { 
+	title, 
+	description, 
+	image = '/blog-placeholder-1.jpg',
+	type = 'website',
+	publishDate,
+	author = 'Dmitrii Kilishek'
+} = Astro.props;
 ---
 
 <!-- Global Metadata -->
@@ -44,17 +54,30 @@ const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
 <title>{title}</title>
 <meta name="title" content={title} />
 <meta name="description" content={description} />
+<meta name="author" content={author} />
+<meta name="robots" content="index, follow" />
 
 <!-- Open Graph / Facebook -->
-<meta property="og:type" content="website" />
+<meta property="og:type" content={type} />
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={new URL(image, Astro.url)} />
+<meta property="og:site_name" content="Odyex" />
+<meta property="og:locale" content="en_US" />
+{publishDate && <meta property="article:published_time" content={publishDate.toISOString()} />}
+{type === 'article' && (
+	<>
+		<meta property="article:author" content={author} />
+		<meta property="article:publisher" content="https://odyex.cc" />
+	</>
+)}
 
 <!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={Astro.url} />
-<meta property="twitter:title" content={title} />
-<meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={new URL(image, Astro.url)} />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:creator" content="@t_dmi3" />
+<meta name="twitter:site" content="@t_dmi3" />
+<meta name="twitter:url" content={Astro.url} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={new URL(image, Astro.url)} />

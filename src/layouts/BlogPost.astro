@@ -19,6 +19,52 @@ const readingTime = Math.ceil(words / 200); // Average reading speed of 200 word
 // Get all posts for related posts component
 const posts = await getCollection('blog');
 const currentPost = posts.find(post => post.slug === slug);
+
+// Author information
+const author = {
+	"@type": "Person",
+	"name": "Dmitrii Kilishek",
+	"url": "https://x.com/t_dmi3",
+	"image": "https://odyex.cc/odyssey-exchange.webp",
+	"jobTitle": "Software Engineer",
+	"sameAs": [
+		"https://x.com/t_dmi3",
+		"https://odyex.cc"
+	]
+};
+
+// Prepare JSON-LD schema
+const jsonLd = {
+	"@context": "https://schema.org",
+	"@type": "BlogPosting",
+	"headline": title,
+	"name": title,
+	"description": description,
+	"image": heroImage ? new URL(heroImage, Astro.site) : undefined,
+	"datePublished": pubDate.toISOString(),
+	"dateModified": updatedDate ? updatedDate.toISOString() : pubDate.toISOString(),
+	"author": author,
+	"publisher": {
+		"@type": "Organization",
+		"name": "Odyex",
+		"url": "https://odyex.cc",
+		"logo": {
+			"@type": "ImageObject",
+			"url": new URL("/favicon.png", Astro.site)
+		}
+	},
+	"keywords": tags.join(", "),
+	"mainEntityOfPage": {
+		"@type": "WebPage",
+		"@id": new URL(Astro.url).toString()
+	},
+	"wordCount": words,
+	"timeRequired": `PT${readingTime}M`,
+	"inLanguage": "en-US",
+	"url": new URL(Astro.url).toString(),
+	"isAccessibleForFree": "True",
+	"license": "https://creativecommons.org/licenses/by-sa/4.0/"
+};
 ---
 
 <html lang="en">
@@ -29,7 +75,9 @@ const currentPost = posts.find(post => post.slug === slug);
 			image={heroImage}
 			type="article"
 			publishDate={pubDate}
+			author={author.name}
 		/>
+		<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 		<style>
 			main {
 				width: calc(100% - 2em);
