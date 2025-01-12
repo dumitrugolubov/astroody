@@ -9,28 +9,19 @@
   force = true
 
 [[redirects]]
-  from = "/blog/"
-  to = "/blog"
-  status = 301
-  force = true
+  from = "/blog/*"
+  to = "/blog/:splat"
+  status = 200
 
 [[redirects]]
-  from = "/about/"
-  to = "/about"
-  status = 301
-  force = true
+  from = "/about"
+  to = "/about/index.html"
+  status = 200
 
 [[redirects]]
-  from = "/blog/:slug/"
-  to = "/blog/:slug"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/*/"
-  to = "/:splat"
-  status = 301
-  force = true
+  from = "/*"
+  to = "/404.html"
+  status = 404
 
 [[headers]]
   for = "/*"
