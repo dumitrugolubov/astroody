@@ -5,9 +5,9 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
 	site: 'https://odyex.cc',
 	output: 'static',
-	trailingSlash: 'never',
 	build: {
-		format: 'file'
+		format: 'directory'
 	},
+	trailingSlash: 'always',
 	integrations: [mdx(), sitemap()]
 });
