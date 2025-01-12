@@ -7,10 +7,13 @@ const { href, class: className, ...props } = Astro.props;
 
 const { pathname } = Astro.url;
 const subpath = pathname.match(/[^\/]+/g);
-const isActive = href === pathname || href === '/' + subpath?.[0];
+const isActive = href === pathname || href === '/' + subpath?.[0] + '/';
+
+// Ensure trailing slash
+const finalHref = href === '/' ? href : href.endsWith('/') ? href : `${href}/`;
 ---
 
-<a href={href} class:list={[className, { active: isActive }]} {...props}>
+<a href={finalHref} class:list={[className, { active: isActive }]} {...props}>
 	<slot />
 </a>
 <style>
