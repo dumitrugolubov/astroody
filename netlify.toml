@@ -9,28 +9,22 @@
   force = true
 
 [[redirects]]
-  from = "/blog/*"
-  to = "/blog"
-  status = 301
-  force = true
+  from = "/blog"
+  to = "/blog.html"
+  status = 200
 
 [[redirects]]
-  from = "/about/*"
-  to = "/about"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/*/"
-  to = "/:splat"
-  status = 301
-  force = true
+  from = "/about"
+  to = "/about.html"
+  status = 200
 
 [[redirects]]
   from = "/*"
-  to = "/404"
+  to = "/404.html"
   status = 404
-  force = false
+
+[build.processing]
+  skip_processing = true
 
 [[headers]]
   for = "/*"
