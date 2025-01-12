@@ -1,4 +1,8 @@
 User-agent: *
-Disallow: 
+Allow: /
+Allow: /blog/
+Allow: /about/
 Disallow: /cgi-bin/
+
+# Sitemap
 Sitemap: https://odyex.cc/sitemap.xml
