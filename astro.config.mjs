@@ -6,9 +6,9 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
 	site: 'https://odyex.cc',
 	output: 'static',
-	trailingSlash: 'never', // Change to never to match Netlify's default behavior
+	trailingSlash: 'always',
 	build: {
-		format: 'directory' // Change to directory instead of file
+		format: 'directory'
 	},
 	integrations: [
 		mdx(),
@@ -17,9 +17,9 @@ export default defineConfig({
 			priority: 0.7,
 			lastmod: new Date(),
 			customPages: [
-				'https://odyex.cc',
-				'https://odyex.cc/about',
-				'https://odyex.cc/blog'
+				'https://odyex.cc/',
+				'https://odyex.cc/about/',
+				'https://odyex.cc/blog/'
 			]
 		})
 	],
